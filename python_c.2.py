@@ -1,11 +1,12 @@
-X = int(input("Zadejte liché přirozené číslo X: "))
+def cisla(X):
+    for i in range(1, 2 * X):
+        for j in range(1, 2 * X):
+            value = X - max(abs(X - i), abs(X - j))
+            print(value, end=" ")
+        print()
 
-
-if X % 2 == 0:
-    print("Zadejte liché číslo.")
+X = int(input("Zadejte číslo: "))
+if X % 2 == 0 or X <= 0:
+    print("Zadejte liché kladné číslo.")
 else:
-
-    for i in range(1, X + 1):
-        row = ''.join(map(str, range(1, X - i + 2))) + ''.join(map(str, range(X - i, 0, -1)))
-        print(row.center(X*2 - 1))
-
+    cisla(X)
